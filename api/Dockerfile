@@ -2,12 +2,9 @@ FROM node:20-slim
 
 WORKDIR /api
 
-# ホストのpackage.jsonとyarn.lockをコンテナの作業ディレクトリにコピー
-COPY package.json /api/package.json
-COPY yarn.lock /api/yarn.lock
+RUN apt-get update && apt-get upgrade
+
+COPY . .
 
 # yarn.lockに基づいてパッケージをインストール
 RUN yarn install
-
-# bashのインストール
-RUN apk add bash

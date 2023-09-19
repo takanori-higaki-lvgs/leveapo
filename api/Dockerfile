@@ -4,6 +4,9 @@ WORKDIR /api
 
 RUN apt-get update && apt-get upgrade
 
+# nestjsのCLIをインストール
+RUN yarn global add @nestjs/cli
+
 COPY . .
 
 # yarn.lockに基づいてパッケージをインストール

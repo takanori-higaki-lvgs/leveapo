@@ -11,10 +11,13 @@ services:
       - "3000:3000"
     volumes:
       - ./front:/front
-  # api:
-  #   container_name: api
-  #   build:
-  #     context: ./api/
-  #     dockerfile: Dockerfile
-  #   volumes:
-  #     - ./api:/api
+  api:
+    container_name: api
+    build:
+      context: ./api/
+      dockerfile: Dockerfile
+    tty: true
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./api:/api
